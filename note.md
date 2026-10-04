@@ -2,9 +2,12 @@ task1:运行指令和输出
 
 1.
 PS C:\WINDOWS\System32> cd D:/python练习
+
 PS D:\python练习> python hello_ml.py
+
 Hello,machine learning!
-2.
+
+3.
 
 
 
