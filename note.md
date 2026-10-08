@@ -1,13 +1,42 @@
-task1:运行指令和输出
+task1:代码，运行指令和输出
 
 1.
-PS C:\WINDOWS\System32> cd D:/python练习
 
+代码  
+print("Hello,machine learning!")
+运行指令  
+PS C:\WINDOWS\System32> cd D:/python练习
+输出  
 PS D:\python练习> python hello_ml.py
 
 Hello,machine learning!
 
 2.
+
+代码  
+scores = {
+    "张三": 88,
+    "李四": 95,
+    "王五": 72,
+    "赵六": 60,
+    "钱七": 45,
+    "孙八": 100,
+    "周九": 83,
+    "吴十": 59,
+}
+def max_scores(scores_dict):
+    scores=scores_dict.values()
+    print("最高分为%d"%max(scores))
+
+def average_scores(scores_dict):
+    scores=scores_dict.values()
+    length=len(scores)
+    total=sum(scores)
+    ave=total/length
+    print("平均分为%f"%ave)
+max_scores(scores)
+average_scores(scores)
+
 
 
 
