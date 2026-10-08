@@ -7,7 +7,7 @@ PS D:\python练习> python hello_ml.py
 
 Hello,machine learning!
 
-3.
+2.
 
 
 
