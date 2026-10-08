@@ -24,18 +24,18 @@ scores = {
     "周九": 83,
     "吴十": 59,
 }
-def max_scores(scores_dict):
-    scores=scores_dict.values()
-    print("最高分为%d"%max(scores))
+def max_scores(scores_dict):  
+    scores=scores_dict.values()  
+    print("最高分为%d"%max(scores))  
 
-def average_scores(scores_dict):
-    scores=scores_dict.values()
-    length=len(scores)
-    total=sum(scores)
-    ave=total/length
-    print("平均分为%f"%ave)
-max_scores(scores)
-average_scores(scores)
+def average_scores(scores_dict):  
+    scores=scores_dict.values()  
+    length=len(scores)  
+    total=sum(scores)  
+    ave=total/length  
+    print("平均分为%f"%ave)  
+max_scores(scores)  
+average_scores(scores)  
 
 
 
