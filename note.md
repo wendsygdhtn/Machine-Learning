@@ -37,6 +37,17 @@ def average_scores(scores_dict):
 max_scores(scores)  
 average_scores(scores)  
 
+运行指令同上
+
+输出
+
+最高分为100
+平均分为75.250000
+
+3.
+
+代码
+
 
 
 
