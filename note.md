@@ -5,7 +5,7 @@ task1:代码，运行指令和输出
 代码  
 print("Hello,machine learning!")
 运行指令  
-PS C:\WINDOWS\System32> cd D:/python练习
+cd D:/python练习
 输出  
 PS D:\python练习> python hello_ml.py
 
@@ -48,14 +48,17 @@ average_scores(scores)
 
 代码
 
+import numpy as np  
+A=np.array([[1,2],[3,4],[5,6]])  
+B=np.array([[5,6],[7,8]])  
+print(A @ B)  
 
+运行指令同上
 
-
-
-
-
-
-
+输出结果
+[[19 22]  
+ [43 50]  
+ [67 78]]  
 
 
 
