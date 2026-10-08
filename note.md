@@ -4,6 +4,7 @@ task1:代码，运行指令和输出
 
 代码  
 print("Hello,machine learning!")
+
 运行指令  
 cd D:/python练习
 输出  
