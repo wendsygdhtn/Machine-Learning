@@ -7,6 +7,7 @@ print("Hello,machine learning!")
 
 运行指令  
 cd D:/python练习
+
 输出  
 PS D:\python练习> python hello_ml.py
 
@@ -42,7 +43,7 @@ average_scores(scores)
 
 输出
 
-最高分为100
+最高分为100  
 平均分为75.250000
 
 3.
@@ -61,6 +62,7 @@ print(A @ B)
  [43 50]  
  [67 78]]  
 
+此次乘法中，输入矩阵为3x2，2x2的，输出矩阵为3x2的。
 
 
 
