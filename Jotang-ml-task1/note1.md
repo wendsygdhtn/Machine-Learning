@@ -41,6 +41,12 @@
 
 <img src="./picture1.png" width="500" />
 
-2.loss/accuracy曲线图
+2.loss/accuracy曲线图：
 
 <img src="./picture2.png" width="1000" />
+
+3.二维决策边界图：
+
+<img src="./picture3.png" width="750" />
+
+
