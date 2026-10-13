@@ -47,6 +47,6 @@
 
 3.二维决策边界图：
 
-<img src="./picture3.png" width="750" />
+<img src="./picture3.png" width="600" />
 
 
