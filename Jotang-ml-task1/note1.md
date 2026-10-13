@@ -36,4 +36,4 @@
 ## 其他：
 
 1.make_moons生成的数据可视化图：
-！[可视化图](picture1.png)
+<img src="./picture1.jpg" width="500" />
