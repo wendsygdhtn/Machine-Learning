@@ -43,4 +43,4 @@
 
 2.loss/accuracy曲线图
 
-<img src="./picture2.png" width="500" />
+<img src="./picture2.png" width="1000" />
