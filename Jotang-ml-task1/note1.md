@@ -37,6 +37,9 @@
 
 ## 附图：
 
+主实验
+
+
 1.make_moons生成的数据可视化图：
 
 <img src="./make_moons-main.png" width="500" />
