@@ -39,14 +39,14 @@
 
 1.make_moons生成的数据可视化图：
 
-<img src="./picture1.png" width="500" />
+<img src="./make_moons-main.png" width="500" />
 
 2.loss/accuracy曲线图：
 
-<img src="./picture2.png" width="1000" />
+<img src="./loss-accuracy-main.png" width="1000" />
 
 3.二维决策边界图：
 
-<img src="./picture3.png" width="600" />
+<img src="./decision-boundary-main.png" width="600" />
 
 
