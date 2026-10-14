@@ -73,7 +73,7 @@ def run_experiment(cfg, X_train, y_train, X_val, y_val, verbose=False):
     torch.manual_seed(SEED)               # 每个实验都从同一初始化出发，保证公平
     model = MLP(hidden=cfg['hidden'], n_layers=cfg['n_layers'], act=cfg['act']).to(DEVICE)     #按传入的cfg参数创建MLP
     n_params = sum(p.numel() for p in model.parameters())
-    opt = {'adam': torch.optim.Adam, 'sgd': torch.optim.SGD}[cfg['optimizer']](
+    optimizer = {'adam': torch.optim.Adam, 'sgd': torch.optim.SGD}[cfg['optimizer']](
         model.parameters(), lr=cfg['lr'])
     loss_fn = nn.CrossEntropyLoss()
  
@@ -95,10 +95,10 @@ def run_experiment(cfg, X_train, y_train, X_val, y_val, verbose=False):
         for i in range(0, n, cfg['batch_size']):
             idx = perm[i:i + cfg['batch_size']]
             xb, yb = Xtr[idx], ytr[idx]                          #按batch_size取数据。
-            opt.zero_grad()
+            optimizer.zero_grad()
             logits = model(xb)
             loss = loss_fn(logits, yb)
-            loss.backward(); opt.step()
+            loss.backward(); optimizer.step()
             ep_loss += loss.item() * len(idx)
             correct += (logits.argmax(1) == yb).sum().item()
         tr_loss, tr_acc = ep_loss / n, correct / n        #计算正确/错误率
