@@ -215,6 +215,7 @@ if __name__ == '__main__':
         'E4 optimizer=SGD':                  {**BASE, 'optimizer': 'sgd'},
         'E5a batch_size=8':                  {**BASE, 'batch_size': 8},
         'E5b batch_size=1024':               {**BASE, 'batch_size': 1024},
+        'E6c n_layers=10':                    {**BASE, 'n_layers': 4},
     }
     results = []
     for name, cfg in EXPERIMENTS.items():
