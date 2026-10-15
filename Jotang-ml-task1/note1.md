@@ -45,9 +45,9 @@
 我在进行过拟合试验时，打算这么设置参数：隐藏层宽度改为256，深度改为10，轮数改为
 
 
-## 附图：
+## 主实验
 
-主实验
+
 
 
 1.make_moons生成的数据可视化图：
@@ -56,11 +56,16 @@
 
 2.loss/accuracy曲线图：
 
+<img src="fig2_curves.png" width="500" />
 
 3.二维决策边界图：
 
-
+<img src="fig3_boundary.png" width="500" />
 
 4.混淆矩阵图：
 
+<img src="fig4_confusion.png" width="500" />
 
+5.错误样例：
+
+<img src="fig5_errors.png" width="500" />
