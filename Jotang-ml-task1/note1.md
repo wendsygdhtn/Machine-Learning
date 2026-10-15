@@ -21,8 +21,7 @@
  
 下面是改变隐藏层宽度和层数和层数的实验组的loss/accuracy图和决策边界图：
 
-<img src="E1a hidden=4.png" width="500" />
-<img src="E1b hidden=128.png" width="500" />
+<img src="E1a hidden=4.png" width="500" /><img src="E1b hidden=128.png" width="500" />
 
 
 
@@ -34,8 +33,7 @@
 
 曲线图如下：
 
-<img src="bd_E3b lr=0.001.png" width="500" />
-<img src="bd_E3a lr=0.5.png" width="500" />
+<img src="bd_E3b lr=0.001.png" width="500" /><img src="bd_E3a lr=0.5.png" width="500" />
 
 
 
