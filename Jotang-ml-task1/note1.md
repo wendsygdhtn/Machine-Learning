@@ -28,7 +28,8 @@
 
 曲线图如下：
 
-<img src="bd_E3b lr=0.001.png" width="500" /> <img src="bd_E3b lr=0.5.png" width="500" />
+<img src="bd_E3b lr=0.001.png" width="500" />
+<img src="bd_E3b lr=0.5.png" width="500" />
 
 
 
