@@ -62,6 +62,8 @@
 
 <img src="fig2_curves.png" width="500" />
 
+PS：这里出现了令我意外的现象：验证集表现好于训练集。可能是验证集随机选取时点更集中在月牙附近导致。
+
 3.二维决策边界图：
 
 <img src="fig3_boundary.png" width="500" />
@@ -73,3 +75,4 @@
 5.错误样例：
 
 <img src="fig5_errors.png" width="500" />
+
