@@ -1,7 +1,7 @@
-# 本文件用来记录所有试验代码和结果
+# 本文件用来记录所有试验代码
 
-01.
-```python
+
+
 from PIL import Image
 import numpy as np
 import torch
@@ -26,16 +26,3 @@ print(tensor[0, 0])
 tensor_chw = tensor.permute(2, 0, 1).float() / 255.0  #C换到H，W前面
 print(tensor_chw.shape)
 
-```
-
-运行结果：
-(1512, 852)
-RGBA
-(852, 1512, 4)
-uint8
-255 18
-[145 168 193 255]
-torch.Size([852, 1512, 4]) torch.uint8
-tensor(255, dtype=torch.uint8) tensor(18, dtype=torch.uint8)
-tensor([145, 168, 193, 255], dtype=torch.uint8)
-torch.Size([4, 852, 1512])
