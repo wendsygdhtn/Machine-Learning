@@ -132,3 +132,16 @@ E5b batch_size=1024                     162     1.29    0.9867    0.9800      17
 E6c n_layers=10                        3330    15.21    0.9867    0.9800      17.4
 ```
 
+8.其他实验组图表：
+<img src="curves_E2a_act=tanh.png" width="500" /><img src="curves_E2b_act=sigm.png" width="500" />
+<img src="bd_E2a act=tanh.png" width="500" /><img src="bd_E2b act=sigm.png" width="500" />
+
+<img src="curves_E3a_Ir=0.5.png" width="500" /><img src="curves_E3b_Ir=0.001.png" width="500" />
+<img src="bd_E1a Ir=0.5.png" width="500" /><img src="bd_E1b Ir=0.001.png" width="500" />
+
+<img src="curves_E4_optimizer.png" width="500" />
+<img src="bd_E4 optimizer.png" width="500" />
+
+<img src="curves_E5a_hidden=4.png" width="500" /><img src="curves_E5b_hidden=128.png" width="500" />
+<img src="bd_E5a hidden=4.png" width="500" /><img src="bd_E5b hidden=128.png" width="500" />
+
