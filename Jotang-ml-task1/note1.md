@@ -145,11 +145,11 @@ E6c n_layers=10                        3330    15.21    0.9867    0.9800      17
 
 - 3.改变batch_size
 
-<img src="curves_E5a_batch_size.png" width="500" /><img src="curves_E5b_batch_size.png" width="500" />
+<img src="curves_E5a_batch_size=8.png" width="500" /><img src="curves_E5b_batch_size=1024.png" width="500" />
 <img src="bd_E5a batch_si.png" width="500" /><img src="bd_E5b batch_si.png" width="500" />
 
 - 4.改变隐藏层数
 
-<img src="curves_E6c_n_layers.png" width="500" />
+<img src="curves_E6c_n_layers=10.png" width="500" />
 <img src="bd_E6c n_layers.png" width="500" />
 
