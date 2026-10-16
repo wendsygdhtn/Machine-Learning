@@ -12,6 +12,49 @@ PS：RGBA：在RGB的基础上，新增一种表示透明度的通道（值0~255
 
 ## 2.使用上面这张图片，用 Pillow 或其他图像读取工具将它转换为 NumPy 数组和 PyTorch Tensor。打印他的的 shape、dtype、最大值和最小值，再打印一个像素的 RGB 数值。说明每个维度和数值分别表示什么，以及 NumPy/Pillow 常见的 HWC 与 PyTorch 常见的 CHW 排列有什么区别。
 
+代码及运行结果：
+
+```python
+from PIL import Image
+import numpy as np
+import torch
+
+img = Image.open("highway.png") 
+print(img.size)   # (宽, 高)
+print(img.mode)   # 通常是 'RGB'
+
+#arr(x,y)=(R(x,y),G(x,y),B(x,y));arr(x,y,颜色)=(0~255（该颜色强度）)
+arr = np.array(img)   #arr是二维数组，每个元素对应一个小方格，每个元素包含该格红/绿/蓝三色强度的三个数值     
+print(arr.shape)  #arr.shape=(高/行数，宽/列数，颜色通道数（3）)
+print(arr.dtype)   #每个数值占1字节，为0~255
+print(arr.max(), arr.min())  #整张图最暗和最亮的通道值
+print(arr[0, 0])   # 左上角像素的 RGBA
+
+tensor = torch.from_numpy(arr)          # 转换Tensor，此时形状仍是 (H, W, 4)
+print(tensor.shape, tensor.dtype)
+print(tensor.max(), tensor.min())
+print(tensor[0, 0])                     
+
+# 变成CHW并归一化
+tensor_chw = tensor.permute(2, 0, 1).float() / 255.0  #C换到H，W前面
+print(tensor_chw.shape)
+```
+运行结果：
+```python
+(1512, 852)
+RGBA
+(852, 1512, 4)
+uint8
+255 18
+[145 168 193 255]
+torch.Size([852, 1512, 4]) torch.uint8
+tensor(255, dtype=torch.uint8) tensor(18, dtype=torch.uint8)
+tensor([145, 168, 193, 255], dtype=torch.uint8)
+torch.Size([4, 852, 1512])
+```
+
+
+
 ## 3.了解二维卷积的基本过程。用自己的话解释：卷积核是什么？它在图片上怎样移动？每到一个位置进行了什么计算？
 
 ## 4.仅使用 Python 和 NumPy，手写一个能够处理灰度图或 RGB 图片的二维卷积函数。核心卷积过程不能调用 cv2.filter2D、scipy.signal.convolve2d、torch.nn.Conv2d 等现成实现。
