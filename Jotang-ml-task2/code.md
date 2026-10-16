@@ -4,9 +4,9 @@
 ```python
 from PIL import Image
 
-img = Image.open("highway.png")  # 换成你的实际文件名
-print(img.size)   # (宽, 高)
-print(img.mode)   # 通常是 'RGB'
+img = Image.open("highway.png")  
+print(img.size)   # 图片的(宽, 高)
+print(img.mode)   
 ```
 
 运行结果：
