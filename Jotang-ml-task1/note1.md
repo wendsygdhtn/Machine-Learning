@@ -133,15 +133,23 @@ E6c n_layers=10                        3330    15.21    0.9867    0.9800      17
 ```
 
 8.其他实验组图表：
-<img src="curves_E2a_act=tanh.png" width="500" /><img src="curves_E2b_act=sigm.png" width="500" />
+- 1.改变激活函数
+- 
+<img src="curves_E2a_act=tanh.png" width="500" /><img src="curves_E2b_act=sigmoid.png" width="500" />
 <img src="bd_E2a act=tanh.png" width="500" /><img src="bd_E2b act=sigm.png" width="500" />
 
-<img src="curves_E3a_Ir=0.5.png" width="500" /><img src="curves_E3b_Ir=0.001.png" width="500" />
-<img src="bd_E1a Ir=0.5.png" width="500" /><img src="bd_E1b Ir=0.001.png" width="500" />
+- 2.改变优化器
 
-<img src="curves_E4_optimizer.png" width="500" />
+<img src="curves_E4_optimizer=SGD.png" width="500" />
 <img src="bd_E4 optimizer.png" width="500" />
 
-<img src="curves_E5a_hidden=4.png" width="500" /><img src="curves_E5b_hidden=128.png" width="500" />
-<img src="bd_E5a hidden=4.png" width="500" /><img src="bd_E5b hidden=128.png" width="500" />
+- 3.改变batch_size
+
+<img src="curves_E5a_batch_size.png" width="500" /><img src="curves_E5b_batch_size.png" width="500" />
+<img src="bd_E5a batch_si.png" width="500" /><img src="bd_E5b batch_si.png" width="500" />
+
+- 4.改变隐藏层数
+
+<img src="curves_E6c_n_layers.png" width="500" />
+<img src="bd_E6c n_layers.png" width="500" />
 
