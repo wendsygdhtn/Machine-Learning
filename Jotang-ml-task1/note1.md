@@ -10,7 +10,7 @@
 
  2.**你选择了什么损失函数？为什么？那如果这一题是三分类问题呢？**
 
- 
+ 我选择了交叉熵误差函数CrossEntropyLoss()，因为它含有对数，可以放大不同模型误差直接的差异，
 
  3.**optimizer.zero_grad()、loss.backward() 和 optimizer.step() 分别完成了什么工作？如果不清空梯度会发生什么？**
 
