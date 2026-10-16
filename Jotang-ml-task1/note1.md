@@ -134,7 +134,7 @@ E6c n_layers=10                        3330    15.21    0.9867    0.9800      17
 
 8.其他实验组图表：
 - 1.改变激活函数
-- 
+
 <img src="curves_E2a_act=tanh.png" width="500" /><img src="curves_E2b_act=sigmoid.png" width="500" />
 <img src="bd_E2a act=tanh.png" width="500" /><img src="bd_E2b act=sigm.png" width="500" />
 
