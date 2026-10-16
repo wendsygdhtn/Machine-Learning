@@ -86,3 +86,49 @@ PS：这里出现了令我意外的现象：验证集表现好于训练集。可
 
 <img src="fig5_errors.png" width="500" />
 
+6.所有运行指令和输出
+
+```python
+(base) PS C:\\WINDOWS\\System32> conda activate ml-env
+(ml-env) PS C:\\WINDOWS\\System32> cd D:/python练习
+(ml-env) PS D:\\python练习> python main.py
+D:\\python练习\\main.py:42: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+  ep 50 | train loss 0.0699 acc 0.9743 | val loss 0.0364 acc 0.9933
+  ep100 | train loss 0.0637 acc 0.9771 | val loss 0.0298 acc 0.9867
+  ep150 | train loss 0.0623 acc 0.9757 | val loss 0.0278 acc 0.9933
+  ep200 | train loss 0.0628 acc 0.9757 | val loss 0.0282 acc 0.9867
+[baseline] params=162  time=5.91s  peak_mem=17.3MB
+D:\\python练习\\main.py:145: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.savefig(fname, dpi=150, bbox_inches='tight'); plt.show()
+D:\\python练习\\main.py:164: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+加载后测试集 acc = 0.9800
+Test accuracy: 0.9800
+D:\\python练习\\main.py:195: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.savefig('fig4_confusion.png', dpi=150, bbox_inches='tight'); plt.show()
+错误样本数: 3 / 150
+  idx= 19  X=(+0.94,-0.14)  true=1  pred=0  P(class1)=0.438
+  idx= 94  X=(-0.45,+0.28)  true=1  pred=0  P(class1)=0.300
+  idx=134  X=(-0.58,+0.56)  true=1  pred=0  P(class1)=0.000
+D:\\python练习\\main.py:164: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+D:\\python练习\\main.py:145: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.savefig(fname, dpi=150, bbox_inches='tight'); plt.show()
+D:\\python练习\\main.py:152: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  plt.figure(figsize=(6, 5))
+
+experiment                           params  time(s)   val_acc  test_acc   mem(MB)
+baseline h32/relu/adam/lr.01/bs64       162     5.91    0.9867    0.9800      17.3
+E1a hidden=4                             22      5.2    0.9200    0.9200      17.3
+E1b hidden=128                          642     5.34    0.9800    0.9667      17.4
+E2a act=tanh                            162    10.53    0.9867    0.9733      17.3
+E2b act=sigmoid                         162    11.44    0.9867    0.9733      17.3
+E3a lr=0.5                              162     7.06    0.9933    0.9733      17.3
+E3b lr=0.001                            162     4.55    0.9867    0.9800      17.3
+E4 optimizer=SGD                        162     4.76    0.9067    0.9133      17.3
+E5a batch_size=8                        162    47.46    0.9867    0.9800      17.3
+E5b batch_size=1024                     162     1.29    0.9867    0.9800      17.4
+E6c n_layers=10                        3330    15.21    0.9867    0.9800      17.4
+```
+
