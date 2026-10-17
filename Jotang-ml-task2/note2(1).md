@@ -138,3 +138,10 @@ print(result)
 
 ## 7.分别尝试不填充（valid）和适当填充（same）图片边缘，比较输出尺寸与边缘像素的变化。记录卷积核大小、padding、stride 与输出尺寸之间的关系。
 
+我输入5x5，卷积核3x3，步长2，padding填充1，Wout=3
+
+我输入7x7，卷积核3x3，步长2，padding填充1，Wout=4
+
+我输入5x5，卷积核3x3，步长1，padding填充0，Wout=3
+
+关系公式：Wout=floor((Win+2*padding-F)/stride)+1            （为卷积核尺寸）
