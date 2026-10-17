@@ -144,4 +144,4 @@ print(result)
 
 我输入5x5，卷积核3x3，步长1，padding填充0，Wout=3
 
-关系公式：Wout=floor((Win+2*padding-F)/stride)+1            （为卷积核尺寸）
+关系公式：Wout=floor((Win+2*padding-F)/stride)+1            （F为卷积核尺寸）
