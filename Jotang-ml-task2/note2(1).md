@@ -63,6 +63,44 @@ HWC和CHW区别是表示的维度顺序不同，HWC为（高，宽，通道数�
 
 ## 4.仅使用 Python 和 NumPy，手写一个能够处理灰度图或 RGB 图片的二维卷积函数。核心卷积过程不能调用 cv2.filter2D、scipy.signal.convolve2d、torch.nn.Conv2d 等现成实现。
 
+我写了能够处理灰度图的二维卷积函数
+```python
+#卷积函数
+def convolve2d(gray_img, kernel):
+    
+    gray_arr = np.array(gray_img)   
+
+    W,H=gray_img.size[0],gray_img.size[1]
+    kH,kW=kernel.shape
+
+    Hout,Wout=H-kH+1,W-kW+1
+    cv = np.zeros((Hout,Wout ), dtype=np.float64)#输出灰度矩阵
+    for i in range (Hout):
+        for j in range (Wout):
+            patch = gray_arr[i:i+kH, j:j+kW]   #左闭右开
+            cv[i,j] = (kernel * patch).sum()
+    #print(cv)
+    return cv
+#以下为测试
+gray_img = img.convert('L')   #转灰度图
+kernel_1 = np.array([[0, 1, 0],
+                   [1, -4, 1],
+                   [0, 1, 0]], dtype=float)
+result=convolve2d(gray_img,kernel_1)
+print(result)
+
+```
+测试结果
+```python
+[[ -8.   0.  -3. ...   4.   1.   8.]
+ [ 15.   5.  -1. ...   0.   2. -10.]
+ [  8.   0.   1. ...   0.   1.   5.]
+ ...
+ [  7.   1.  -1. ...   2.   5.  19.]
+ [ 13.   1.   0. ...   5.   6.  17.]
+ [ 14.   0.  -5. ...  17.  17.  15.]]
+```
+
 ## 5.至少使用下面四种卷积核处理同一张图片，把原图和结果放在一起比较：
 
 **均值模糊：使用 3×3 的均值卷积核；**
