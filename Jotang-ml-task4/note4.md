@@ -47,8 +47,26 @@ flowchart TB
 
 阅读笔记：
 
-- 1.使用资料：论文 Attention Is All You Need，[讲解视频1](https://www.bilibili.com/video/BV1dyW9zsEk1?t=1.8),[讲解视频2](https://www.bilibili.com/video/BV1xoJwzDESD?t=1.3),[讲解视频3](https://www.bilibili.com/video/BV1pr421t73G?t=2.9)
-- 
+使用资料：论文 Attention Is All You Need，[讲解视频1](https://www.bilibili.com/video/BV1dyW9zsEk1?t=1.8),[讲解视频2](https://www.bilibili.com/video/BV1xoJwzDESD?t=1.3),[讲解视频3](https://www.bilibili.com/video/BV1pr421t73G?t=2.9)
+
+工具：我用Mermaid画了任务1的结构图
+
+有关读不懂的地方：
+1.Self-Attention的“Self”到底指什么呢？ 
+
+后来理解：指Q、K、V都来自同一个序列（同一层输出），是序列内部位置之间互相注意；普通Attention（如encoder-decoder attention）的Q来自解码器，K/V来自编码器，是跨序列的。
+
+2.Decoder 的 mask 怎么实现？
+
+后来理解：在 scaled dot-product attention 里，把 softmax 输入中对应“未来位置”的值设为负无穷，softmax 后这些位置权重为 0；配合输出 embedding 右移一位，保证位置 i 只能依赖 <i 的已知输出。
+
+3.没有 RNN/CNN 怎么知道顺序？
+
+后来理解：靠 Positional Encoding 加到输入 embedding 上；论文用不同频率的正弦/余弦函数，使任意固定偏移 k 的 PE_pos+k 可表示为 PE_pos 的线性函数，便于学习相对位置。
+
+4.FFN 为什么叫 position-wise？
+后来理解：Position‑wise FFN 即逐位置前馈网络，指的是该网络会分别且相同地作用于序列的每一个 token 位置，所有位置共享同一套权重参数，仅对单个位置的向量做两层线性与 ReLU 非线性变换，计算时不跨位置交换信息，和负责上下文交互的多头注意力形成分工。
+
 
 **4.这篇论文最初处理的是什么任务？它为什么尝试不用 RNN 和 CNN？**
 
@@ -76,8 +94,8 @@ Transformer 没有循环结构，靠 positional encoding 知道词语先后顺�
 
 **10.Decoder 中为什么需要 Masked Attention？如果能提前看到后面的答案，会发生什么？**
 
-Decoder 需要 masked attention，是因为 decoder 是自回归的，生成位置 i 时只能依赖已生成的小于 i 的输出，masked self-attention 把 softmax 输入中对应未来位置的值设为负无穷，使其权重为零，防止向左的信息流；如果提前看到后面答案，训练时模型会作弊直接利用未来 token，训练损失很低但推理时无法获得未来信息，导致泛化崩溃，破坏自回归性质，等价于标签泄漏。
+Decoder需要masked attention，是因为decoder是自回归的，生成位置i时只能依赖已生成的小于i的输出，masked self-attention把softmax输入中对应未来位置的值设为负无穷，使其权重为零，防止向左的信息流；如果提前看到后面答案，训练时模型会作弊直接利用未来 token，训练损失很低但推理时无法获得未来信息，导致泛化崩溃，破坏自回归性质，等价于标签泄漏。
 
-**11.残差连接、Layer Normalization 和 Feed-Forward Network 分别出现在结构图的哪里？它们大致有什么作用？**
+**11.残差连接、Layer Normalization和Feed-Forward Network分别出现在结构图的哪里？它们大致有什么作用？**
 
-残差连接围绕每个子层（encoder 的 self-attention、FFN；decoder 的 masked self-attention、encoder-decoder attention、FFN），形式为输入加子层输出，作用是缓解深层网络梯度消失、便于训练，并保持所有子层输出维度为五百一十二以便相加；LayerNorm 在每个残差相加之后，作用是稳定激活分布、加速收敛，且按每个样本的特征维度归一化，适合序列变长场景；FFN 位于每个 encoder 和 decoder 层中 attention 子层之后，是逐位置的两层线性加 ReLU，对每个位置单独且相同地应用，内层维度二千零四十八、输出回五百一十二，作用是提供非线性变换和逐位置特征加工，弥补 attention 主要是加权聚合的线性混合。
+残差连接围绕每个子层（encoder的self-attention、FFN；decoder的masked self-attention、encoder-decoder attention、FFN），形式为输入加子层输出，作用是缓解深层网络梯度消失、便于训练，并保持所有子层输出维度为五百一十二以便相加；LayerNorm在每个残差相加之后，作用是稳定激活分布、加速收敛，且按每个样本的特征维度归一化，适合序列变长场景；FFN位于每个encoder和decoder层中attention子层之后，是逐位置的两层线性加ReLU，对每个位置单独且相同地应用，内层维度二千零四十八、输出回五百一十二，作用是提供非线性变换和逐位置特征加工，弥补attention主要是加权聚合的线性混合。
