@@ -45,6 +45,11 @@ flowchart TB
 ```
 **3.整理一份阅读笔记，记录你使用了哪些资料或工具、遇到了哪些读不懂的地方、后来怎样理解，以及目前仍然存在哪些疑问。**
 
+阅读笔记：
+
+- 1.使用资料：论文 Attention Is All You Need，[讲解视频1](https://www.bilibili.com/video/BV1dyW9zsEk1?t=1.8),[讲解视频2](https://www.bilibili.com/video/BV1xoJwzDESD?t=1.3),[讲解视频3](https://www.bilibili.com/video/BV1pr421t73G?t=2.9)
+- 
+
 **4.这篇论文最初处理的是什么任务？它为什么尝试不用 RNN 和 CNN？**
 
 这篇论文最初处理的是序列转导任务，实验集中在机器翻译（WMT 2014 英德、英法），并推广到英语成分句法分析；它尝试不用 RNN 和 CNN，是因为 RNN 的隐藏状态依赖上一步，计算本质顺序、难以在样本内并行，长序列受内存和批处理限制，而 CNN 关联任意两位置所需操作随距离线性或对数增长，长距离依赖难学，Transformer 完全基于 attention，任意两位置间操作数为常数，并行度更高、训练更快且翻译质量达到新最好水平。
