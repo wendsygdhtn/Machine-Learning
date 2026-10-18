@@ -40,7 +40,9 @@ print(f"NumPy Loss: {loss_np:.6f}")
 
 **3.画出从输入到 loss 的计算图，按照链式法则从后向前计算每个参数的梯度；**
 
+计算图：
 
+<img src="ccl.jpg" width="500" />
 
 **4.使用相同的输入和参数在 PyTorch 中重新完成一次前向传播，调用 autograd 得到梯度；**
 
