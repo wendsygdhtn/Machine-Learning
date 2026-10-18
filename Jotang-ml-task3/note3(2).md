@@ -20,7 +20,22 @@ b2_np = np.zeros((1, out_dim), dtype=np.float32)
 
 **2.使用 NumPy 完成线性层、ReLU、Sigmoid 和二元交叉熵损失的前向计算；**
 
+前向计算代码：
+```python
+# 第一层：Linear
+Z1 = np.dot(X_np, W1_np) + b1_np            # 形状: (3, 4)
+# 激活函数：ReLU
+A1 = np.maximum(0, Z1)                      # 形状: (3, 4)
+# 第二层：Linear
+Z2 = np.dot(A1, W2_np) + b2_np              # 形状: (3, 1)
+# 激活函数：Sigmoid
+Y_hat = 1.0 / (1.0 + np.exp(-Z2))           # 形状: (3, 1)
 
+# 二元交叉熵损失 (Binary Cross Entropy)
+# 加 1e-8 防止 log(0) 报错
+loss_np = -np.mean(y_np * np.log(Y_hat + 1e-8) + (1 - y_np) * np.log(1 - Y_hat + 1e-8))
+print(f"NumPy Loss: {loss_np:.6f}")
+```
 
 **3.画出从输入到 loss 的计算图，按照链式法则从后向前计算每个参数的梯度；**
 
