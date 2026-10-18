@@ -3,7 +3,18 @@
 
 **1.自己确定隐藏层神经元数量，并初始化 W1,b1,W2,b2.**
 
-
+```python
+#每个样本有2个特征
+batch_size = X_np.shape[0]  # 3
+in_dim = 2
+hidden_dim = 4              # 设定隐藏层神经元为 4
+out_dim = 1
+# 初始化参数 (使用标准的 He 初始化，方便 PyTorch 复制)
+W1_np = np.random.randn(in_dim, hidden_dim).astype(np.float32) * np.sqrt(2.0 / in_dim)
+b1_np = np.zeros((1, hidden_dim), dtype=np.float32)
+W2_np = np.random.randn(hidden_dim, out_dim).astype(np.float32) * np.sqrt(2.0 / hidden_dim)
+b2_np = np.zeros((1, out_dim), dtype=np.float32)
+```
 
 **2.使用 NumPy 完成线性层、ReLU、Sigmoid 和二元交叉熵损失的前向计算；**
 
