@@ -8,5 +8,5 @@
 使用 PyTorch 的 autograd 检查自己的结果是否一致。
 
 作答：
-<img src="原图.png" width="500" />
+<img src="calculate.jpg" width="500" />
 
