@@ -44,6 +44,26 @@ print(f"NumPy Loss: {loss_np:.6f}")
 
 <img src="ccl.jpg" width="500" />
 
+计算各个参数梯度的代码：
+```python
+# 1. Loss 对 Z2 的梯度 (BCE+Sigmoid 的神奇化简)
+dZ2 = (Y_hat - y_np) / batch_size           # 形状: (3, 1)
+
+# 2. Loss 对 W2, b2 的梯度
+dW2 = np.dot(A1.T, dZ2)                     # 形状: (4, 3) @ (3, 1) -> (4, 1)
+db2 = np.sum(dZ2, axis=0, keepdims=True)    # 形状: (1, 1)
+
+# 3. Loss 对 A1 的梯度
+dA1 = np.dot(dZ2, W2_np.T)                  # 形状: (3, 1) @ (1, 4) -> (3, 4)
+
+# 4. Loss 对 Z1 的梯度 (ReLU 的导数：大于0为1，小于等于0为0)
+dZ1 = dA1 * (Z1 > 0).astype(np.float32)     # 形状: (3, 4)
+
+# 5. Loss 对 W1, b1 的梯度
+dW1 = np.dot(X_np.T, dZ1)                   # 形状: (2, 3) @ (3, 4) -> (2, 4)
+db1 = np.sum(dZ1, axis=0, keepdims=True)    # 形状: (1, 4)
+```
+
 **4.使用相同的输入和参数在 PyTorch 中重新完成一次前向传播，调用 autograd 得到梯度；**
 
 
