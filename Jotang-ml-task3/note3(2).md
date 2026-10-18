@@ -66,7 +66,27 @@ db1 = np.sum(dZ1, axis=0, keepdims=True)    # 形状: (1, 4)
 
 **4.使用相同的输入和参数在 PyTorch 中重新完成一次前向传播，调用 autograd 得到梯度；**
 
+利用Pytorch计算梯度的代码：
+```python
+X_pt = torch.tensor(X_np, dtype=torch.float32, requires_grad=False)
+y_pt = torch.tensor(y_np, dtype=torch.float32, requires_grad=False)
+W1_pt = torch.tensor(W1_np, dtype=torch.float32, requires_grad=True)  # <--- 加 dtype
+b1_pt = torch.tensor(b1_np, dtype=torch.float32, requires_grad=True)  # <--- 加 dtype
+W2_pt = torch.tensor(W2_np, dtype=torch.float32, requires_grad=True)  # <--- 加 dtype
+b2_pt = torch.tensor(b2_np, dtype=torch.float32, requires_grad=True)  # <--- 加 dtype
 
+# 前向计算
+Z1_pt = torch.matmul(X_pt, W1_pt) + b1_pt
+A1_pt = torch.relu(Z1_pt)
+Z2_pt = torch.matmul(A1_pt, W2_pt) + b2_pt
+Y_hat_pt = torch.sigmoid(Z2_pt)
+
+loss_pt = nn.BCELoss()(Y_hat_pt, y_pt)
+print(f"PyTorch Loss: {loss_pt.item():.6f}")
+
+# 反向传播
+loss_pt.backward()
+```
 
 **5.将 NumPy 手算梯度与 PyTorch 自动计算的梯度逐项比较，输出它们的形状、数值和最大绝对误差，并判断结果是否一致。**
 
