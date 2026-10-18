@@ -31,11 +31,33 @@ df_dy=df_du*(du_dy)
 
 print("x梯度：%d,y梯度：%d"%(df_dx,df_dy))
 ```
-
 计算结果
 
 ```python
 x梯度：140,y梯度：40
 ```
+Pytorch的autograd的计算代码：
+
+```python
+import torch
+
+x = torch.tensor(2.0, requires_grad=True)
+y = torch.tensor(3.0, requires_grad=True)
+
+#计算f
+f = (x**2 + x * y) ** 2
+f.backward()
+grad_x_auto = x.grad.item()
+grad_y_auto = y.grad.item()
+
+print(f"df/dx = {grad_x_auto}")
+print(f"df/dy = {grad_y_auto}")
+```
+计算结果：
+```python
+df/dx = 140.0
+df/dy = 40.0
+```
+
 
 **两个结果相一致**
