@@ -36,6 +36,7 @@ Y_hat = 1.0 / (1.0 + np.exp(-Z2))           # 形状: (3, 1)
 loss_np = -np.mean(y_np * np.log(Y_hat + 1e-8) + (1 - y_np) * np.log(1 - Y_hat + 1e-8))
 print(f"NumPy Loss: {loss_np:.6f}")
 ```
+其中进行的计算是：Z1=X@W1+B1 , A1=ReLU(Z1) , Z2=A1@W2+b2
 
 **3.画出从输入到 loss 的计算图，按照链式法则从后向前计算每个参数的梯度；**
 
